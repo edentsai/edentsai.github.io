@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.edentsai.net/"/>
-  <updated>2019-05-03T16:20:18.315Z</updated>
+  <updated>2019-05-03T17:05:51.764Z</updated>
   <id>https://blog.edentsai.net/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>How to Install Tig and Ncurses without root permission</title>
-    <link href="https://blog.edentsai.net/articles/20190501-how-to-install-tig-and-ncurses-without-root-permission/"/>
-    <id>https://blog.edentsai.net/articles/20190501-how-to-install-tig-and-ncurses-without-root-permission/</id>
+    <link href="https://blog.edentsai.net/20190501-how-to-install-tig-and-ncurses-without-root-permission/"/>
+    <id>https://blog.edentsai.net/20190501-how-to-install-tig-and-ncurses-without-root-permission/</id>
     <published>2019-04-30T16:00:00.000Z</published>
-    <updated>2019-05-03T16:20:18.315Z</updated>
+    <updated>2019-05-03T17:05:51.764Z</updated>
     
     <summary type="html">
     
@@ -29,9 +29,7 @@
     
     </summary>
     
-      <category term="articles" scheme="https://blog.edentsai.net/categories/articles/"/>
-    
-      <category term="Git" scheme="https://blog.edentsai.net/categories/articles/Git/"/>
+      <category term="Git" scheme="https://blog.edentsai.net/categories/Git/"/>
     
     
       <category term="Linux" scheme="https://blog.edentsai.net/tags/Linux/"/>
