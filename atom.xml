@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.edentsai.net/"/>
-  <updated>2019-05-03T17:24:45.776Z</updated>
+  <updated>2019-07-13T19:55:17.597Z</updated>
   <id>https://blog.edentsai.net/</id>
   
   <author>
@@ -17,15 +17,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>How to Install Tig and Ncurses without root permission</title>
-    <link href="https://blog.edentsai.net/20190501-how-to-install-tig-and-ncurses-without-root-permission/"/>
-    <id>https://blog.edentsai.net/20190501-how-to-install-tig-and-ncurses-without-root-permission/</id>
-    <published>2019-04-30T16:00:00.000Z</published>
-    <updated>2019-05-03T17:24:45.776Z</updated>
+    <title>Table of Shellcheck Rules</title>
+    <link href="https://blog.edentsai.net/20190714-shellcheck-rules/"/>
+    <id>https://blog.edentsai.net/20190714-shellcheck-rules/</id>
+    <published>2019-07-13T16:00:00.000Z</published>
+    <updated>2019-07-13T19:55:17.597Z</updated>
     
     <summary type="html">
     
-      &lt;p&gt;本文主要用來記錄如何在不使用 root 權限的前提下，在自己的家目錄裡安裝 &lt;a href=&quot;https://www.gnu.org/software/ncurses/&quot; title=&quot;GNU Ncurses&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GNU Ncurses&lt;/a&gt; 函式並編譯 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 指令工具，讓編譯好的 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 指令能夠正常顯示中文。&lt;/p&gt;&lt;h3 id=&quot;Tig-Text-mode-interface-for-Git&quot;&gt;&lt;a href=&quot;#Tig-Text-mode-interface-for-Git&quot; class=&quot;headerlink&quot; title=&quot;Tig: Text-mode interface for Git&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig: Text-mode interface for Git&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 是個非常實用的 command line 工具，它提供一個 Text-mode Interface (TUI) 讓你能夠在 Terminal 裡透過類似 GUI 的介面進行操作與瀏覽 Git Repository，安裝方式在&lt;a href=&quot;https://jonas.github.io/tig/INSTALL.html&quot; title=&quot;Tig Installation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文件&lt;/a&gt;裡寫得很清楚也很簡單，但是當你沒有 root 權限去使用 apt 之類的套件管理工具時就變得相對麻煩，不僅需要下載 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 原始碼來重新編譯為指令，且編譯環境還必須事先安裝好 &lt;a href=&quot;https://www.gnu.org/software/ncurses/&quot; title=&quot;GNU Ncurses&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GNU Ncurses&lt;/a&gt; 函式庫，才能讓編譯好的 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 指令支援正常顯示中文！&lt;/p&gt;
+      &lt;p&gt;&lt;a href=&quot;https://github.com/koalaman/shellcheck&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Shellcheck&lt;/a&gt; 是一套用來檢查與分析 Shell script 的自動化檢查工具，&lt;br&gt;除了檢查撰寫風格以外，它還能夠找出 Shell script 裡有哪些指令可能存在執行風險，&lt;br&gt;並且提供對應的修改方式協助改善 Shell script 的品質。&lt;/p&gt;
+&lt;p&gt;Shellcheck 的使用方法很簡單，直接參考它本身的文件就很清楚，&lt;br&gt;而且作者有提供方便的 &lt;a href=&quot;https://hub.docker.com/r/koalaman/shellcheck/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;docker image&lt;/a&gt; 可以直接使用。&lt;/p&gt;
+&lt;p&gt;當 Shellcheck 發現 shell script 有任何風險時，&lt;br&gt;它除了顯示是哪一段指令會造成風險以外，&lt;br&gt;同時也會提供對應的檢查規範與文件網址，&lt;br&gt;讓你能夠進一步瞭解風險原因與修改方法。&lt;/p&gt;
+&lt;p&gt;目前 Shellcheck 支援的檢查規範有 SC1000 ~ SC2253 ，&lt;br&gt;大約 340 個，簡單列舉幾個常見情境：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;偵測指令的相容性，像是 script 是用 /bin/sh 執行，但卻使用到 bash 專屬特性&lt;/li&gt;
+&lt;li&gt;偵測有風險的操作，例如使用 pipe 特性時是否會有不穩定性&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Shell" scheme="https://blog.edentsai.net/categories/Shell/"/>
+    
+    
+      <category term="Linux" scheme="https://blog.edentsai.net/tags/Linux/"/>
+    
+      <category term="Terminal" scheme="https://blog.edentsai.net/tags/Terminal/"/>
+    
+      <category term="Shell" scheme="https://blog.edentsai.net/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>How to Install Tig and Ncurses without root permission</title>
+    <link href="https://blog.edentsai.net/20190501-how-to-install-tig-and-ncurses-without-root-permission/"/>
+    <id>https://blog.edentsai.net/20190501-how-to-install-tig-and-ncurses-without-root-permission/</id>
+    <published>2019-05-01T00:00:00.000Z</published>
+    <updated>2019-07-13T16:17:32.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;本文主要用來記錄如何在不使用 root 權限的前提下，在自己的家目錄裡安裝 &lt;a href=&quot;https://www.gnu.org/software/ncurses/&quot; title=&quot;GNU Ncurses&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GNU Ncurses&lt;/a&gt; 函式並編譯 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 指令工具，讓編譯好的 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 指令能夠正常顯示中文。&lt;/p&gt;
+&lt;h3 id=&quot;Tig-Text-mode-interface-for-Git&quot;&gt;&lt;a href=&quot;#Tig-Text-mode-interface-for-Git&quot; class=&quot;headerlink&quot; title=&quot;Tig: Text-mode interface for Git&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig: Text-mode interface for Git&lt;/a&gt;&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 是個非常實用的 command line 工具，它提供一個 Text-mode Interface (TUI) 讓你能夠在 Terminal 裡透過類似 GUI 的介面進行操作與瀏覽 Git Repository，安裝方式在&lt;a href=&quot;https://jonas.github.io/tig/INSTALL.html&quot; title=&quot;Tig Installation&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方文件&lt;/a&gt;裡寫得很清楚也很簡單，但是當你沒有 root 權限去使用 apt 之類的套件管理工具時就變得相對麻煩，不僅需要下載 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 原始碼來重新編譯為指令，且編譯環境還必須事先安裝好 &lt;a href=&quot;https://www.gnu.org/software/ncurses/&quot; title=&quot;GNU Ncurses&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;GNU Ncurses&lt;/a&gt; 函式庫，才能讓編譯好的 &lt;a href=&quot;https://github.com/jonas/tig&quot; title=&quot;Text-mode interface for Git&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Tig&lt;/a&gt; 指令支援正常顯示中文！&lt;/p&gt;
     
     </summary>
     

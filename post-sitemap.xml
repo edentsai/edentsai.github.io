@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://blog.edentsai.net/20190714-shellcheck-rules/</loc>
+        <lastmod>2019-07-13T19:55:17.597Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://blog.edentsai.net/20190501-how-to-install-tig-and-ncurses-without-root-permission/</loc>
-        <lastmod>2019-05-03T17:24:45.776Z</lastmod>
+        <lastmod>2019-07-13T16:17:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

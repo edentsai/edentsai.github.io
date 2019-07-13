@@ -8,8 +8,15 @@
     </url>
 
     <url>
+        <loc>https://blog.edentsai.net/categories/Shell/</loc>
+        <lastmod>2019-07-13T19:55:17.597Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://blog.edentsai.net/categories/Git/</loc>
-        <lastmod>2019-05-03T17:24:45.776Z</lastmod>
+        <lastmod>2019-07-13T16:17:32.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
